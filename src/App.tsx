@@ -5,6 +5,7 @@ import theme from './theme'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path='*' element={<NotFound />} />
             <Route path='/' element={<Home />} />
             <Route path='/sign-up' element={<SignUp />} />
+            <Route path='/sign-in' element={<SignIn />} />
           </Routes>
         </Router>
       </div>

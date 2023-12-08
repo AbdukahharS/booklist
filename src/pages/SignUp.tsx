@@ -1,10 +1,33 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container } from '../components/GlobalComponents'
-import { Card, Stack, Typography, Button, TextField } from '@mui/material'
+import {
+  Card,
+  Stack,
+  Typography,
+  Button,
+  TextField,
+  FormControl,
+  InputLabel,
+  OutlinedInput,
+  InputAdornment,
+  IconButton,
+} from '@mui/material'
 import { useTheme } from '@mui/material/styles'
+import { VisibilityOff, Visibility } from '@mui/icons-material'
 
 const SignUp = () => {
   const theme = useTheme()
+
+  const [showPassword, setShowPassword] = React.useState(false)
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show)
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault()
+  }
 
   return (
     <Container>
@@ -36,16 +59,34 @@ const SignUp = () => {
               </Button>
             </Stack>
             <img src='images/distinguishing.svg' alt='distinguishing' />
-            <TextField
-              label='Your name'
-              defaultValue='john doe'
-              placeholder='john doe'
-            />
+            <TextField label='Your name' placeholder='john doe' />
             <TextField label='Your email' placeholder='Enter your email' />
             <TextField
               label='Your username'
               placeholder='Enter your username'
             />
+            <FormControl variant='outlined'>
+              <InputLabel htmlFor='outlined-adornment-password'>
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id='outlined-adornment-password'
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position='end'>
+                    <IconButton
+                      aria-label='toggle password visibility'
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge='end'
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label='Password'
+              />
+            </FormControl>
             <Stack gap='12px'>
               <Button variant='contained'>Button</Button>
               <Typography variant='caption' textAlign='center' fontSize='14px'>
