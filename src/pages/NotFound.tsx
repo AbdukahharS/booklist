@@ -2,10 +2,7 @@ import Stack from '@mui/material/Stack'
 import styled from '@emotion/styled'
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom'
-
-const Container = styled(Stack)`
-  height: 100vh;
-`
+import { Container } from '../components/GlobalComponents'
 
 const Btn = styled(Button)`
   min-width: 240px;
@@ -14,7 +11,7 @@ const Btn = styled(Button)`
 const NotFound = () => {
   return (
     <Container>
-      <Stack alignItems='center' justifyContent='center' my='auto' gap='72px'>
+      <Stack alignItems='center' my='auto' gap='72px'>
         <img src='images/not-found.svg' alt='Not found' width={720} />
         <Stack direction='row' gap='12px'>
           <Btn variant='contained'>
